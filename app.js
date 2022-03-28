@@ -1,48 +1,105 @@
-com = 0;
-user = 0;
-coms = 0;
-users = 0;
-
-alert = `Welcome to 20!`;
-
-do {
-
+function twentygame() {
     do {
-        var number = Math.floor(Math.random() * 10 + 1);
-        com = com + number
-        alert(`Computer got ${number}, the Computer now has ${com}.`)
-    } while (com <= 16);
+        com = 0;
+        user = 0;
+        coms = 0;
+        users = 0;
 
-    alert(`Now it's your turn.`)
+        function askname() {
+            var username = prompt(`Hello welcome to Twenty im the Computer. \n\n Whats your name?`)
+            return username
+        }
 
-    do {
-        var number = Math.floor(Math.random() * 10 + 1);
-        user = user + number
-        alert(`You got ${number}, You now have ${user}.`)
-        var userinput = prompt(`If you want to play again press "y"`)
-    } while (userinput == "y");
+        askname()
 
-    alert(`The Computer has ${com}, and You have ${user}`)
+        function rng() {
+            var number = Math.floor(Math.random() * 10 + 1);
+            return number
+        }
 
-    if ((com > user) && (com <= 20)) {
-        alert(`You Lost!`)
-        coms = coms + 1
-    } else if ((user > com) && (user <= 20)) {
-        alert(`You Won!`)
-        users++
-    } else {
-        alert(`You Tied!`)
-    }
+        rng()
 
-    alert(`Computer: ${coms}  |  You: ${users}`)
+        function comf() {
+            do {
+                com = com + number
+                alert(`Computer got ${number}, the Computer now has ${com}.`)
+            } while (com <= 16);
 
-    var user1 = prompt(`If you want to play again type "y"`)
+            alert(`Now it's your turn.`)
+        }
+
+        comf()
+
+        function userf(plr) {
+            do {
+                user = user + number
+                alert(`${plr} got ${number}, ${plr} now have ${user}.`)
+                var userinput = prompt(`If you want to play again press "y"`)
+            } while (userinput == "y");
+
+        }
+
+        userf()
+
+        function comparing() {
+            if ((com > user) && (com <= 20)) {
+                alert(`You Lost!`)
+                coms = coms + 1
+            } else if ((user > com) && (user <= 20)) {
+                alert(`You Won!`)
+                users++
+            } else {
+                alert(`You Tied!`)
+            }  
+            
+            alert(`Computer: ${coms}  |  You: ${users}`)    
+        }
+        
+
+        
+    } while (user1 == y);
+
+}
 
 
-}   while (user1 == y)
+
+//alert = `Welcome to 20!`;//
+
+//do {
+
+//    do {
+//        var number = Math.floor(Math.random() * 10 + 1);
+//        com = com + number
+//        alert(`Computer got ${number}, the Computer now has ${com}.`)
+//    } while (com <= 16);
+
+//    alert(`Now it's your turn.`)
+
+//    do {
+//        var number = Math.floor(Math.random() * 10 + 1);
+//        user = user + number
+//        alert(`You got ${number}, You now have ${user}.`)
+//        var userinput = prompt(`If you want to play again press "y"`)
+//    } while (userinput == "y");
+
+//    alert(`The Computer has ${com}, and You have ${user}`)
+
+//    if ((com > user) && (com <= 20)) {
+//        alert(`You Lost!`)
+//        coms = coms + 1
+//    } else if ((user > com) && (user <= 20)) {
+//        alert(`You Won!`)
+//        users++
+//    } else {
+//        alert(`You Tied!`)
+//    }
+
+//    alert(`Computer: ${coms}  |  You: ${users}`)
+
+//    var user1 = prompt(`If you want to play again type "y"`)
 
 
-
+//}   while (user1 == y)//
 
 
 
