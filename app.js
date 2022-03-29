@@ -10,57 +10,61 @@ function twentygame() {
             return username
         }
 
-        askname()
+        
 
         function rng() {
             var number = Math.floor(Math.random() * 10 + 1);
             return number
         }
 
-        rng()
+        
 
-        function comf() {
+        function comf(cr, nmbr) {
             do {
-                com = com + number
-                alert(`Computer got ${number}, the Computer now has ${com}.`)
-            } while (com <= 16);
+                cr = cr + rng()
+                alert(`The Computer now has ${cr}.`)
+            } while (cr <= 16);
 
             alert(`Now it's your turn.`)
         }
 
-        comf()
+        
 
-        function userf(plr) {
+        function userf(plr, usr) {
             do {
-                user = user + number
-                alert(`${plr} got ${number}, ${plr} now have ${user}.`)
+                usr = usr + rng()
+                if (usr > 21) {
+                    break
+                }
+                alert(`Now you have ${usr}.`)
                 var userinput = prompt(`If you want to play again press "y"`)
             } while (userinput == "y");
 
         }
 
-        userf()
+        
 
-        function comparing() {
-            if ((com > user) && (com <= 20)) {
+        function comparing(cptr, usr, plr) {
+            if ((cptr > usr) && (cptr <= 20)) {
                 alert(`You Lost!`)
                 coms = coms + 1
-            } else if ((user > com) && (user <= 20)) {
+            } else if ((usr > cptr) && (usr <= 20)) {
                 alert(`You Won!`)
                 users++
             } else {
                 alert(`You Tied!`)
             }  
             
-            alert(`Computer: ${coms}  |  You: ${users}`)    
+            alert(`Computer: ${coms}  |  ${plr}: ${users}`)    
         }
         
-
+        comparing(comf(com, rng()), userf(askname(), rng(), user), askname())
         
     } while (user1 == y);
 
 }
 
+twentygame()
 
 
 //alert = `Welcome to 20!`;//
