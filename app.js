@@ -10,27 +10,14 @@ function twentygame() {
             return username
         }
 
-        
+        var name = askname();
 
         function rng() {
             var number = Math.floor(Math.random() * 10 + 1);
             return number
         }
 
-        
-
-        function comf(cr, nmbr) {
-            do {
-                cr = cr + rng()
-                alert(`The Computer now has ${cr}.`)
-            } while (cr <= 16);
-
-            alert(`Now it's your turn.`)
-        }
-
-        
-
-        function userf(plr, usr) {
+        function userf(usr) {
             do {
                 usr = usr + rng()
                 if (usr > 21) {
@@ -42,15 +29,26 @@ function twentygame() {
 
         }
 
+        function comf(cr) {
+            do {
+                cr = cr + rng()
+                alert(`The Computer now has ${cr}.`)
+            } while (cr <= 16);
+        }
+
         
 
-        function comparing(cptr, usr, plr) {
-            if ((cptr > usr) && (cptr <= 20)) {
-                alert(`You Lost!`)
-                coms = coms + 1
-            } else if ((usr > cptr) && (usr <= 20)) {
+        
+
+        
+
+        function comparing(usr, cptr, plr) {
+            if ((usr > cptr) && (usr <= 20)) {
                 alert(`You Won!`)
                 users++
+            } else if ((cptr > usr) && (cptr <= 20)) {
+                alert(`You Lost!`)
+                coms = coms + 1
             } else {
                 alert(`You Tied!`)
             }  
@@ -58,7 +56,7 @@ function twentygame() {
             alert(`Computer: ${coms}  |  ${plr}: ${users}`)    
         }
         
-        comparing(comf(com, rng()), userf(askname(), rng(), user), askname())
+        comparing(userf(user), comf(com, rng()), name)
         
     } while (user1 == y);
 
